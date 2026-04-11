@@ -1,4 +1,5 @@
 /**
+ * ExAMPLE - 1*
  * ## 1 ## : first it will execute Step1
  *           Once after completion of Step1 then only it will move to the next statement which is LOOP
  * ## 2 ##: Second it will start execute loop
@@ -7,7 +8,6 @@
  * ## 3 ##: Third i even set the timeout still it will wait 200ms and execute that statement and move to 4
  * ## 4 ##: Fourth executes the last console statement
  */
-
 
 // FIRST thread
 console.log("Step 1 -> START");
@@ -21,4 +21,65 @@ setTimeout(console.log("Step 3 -> MIDDLE"), 200);
 
 // THIRD thread
 console.log("Step 2 -> END");
+
+
+
+
+
+/**
+ * EXAMPLE - 2*
+ * Execution context + Callstack
+ * 
+ * ------OUTPUT-------
+1. Global EC created
+2. a() pushed to call stack
+3. Inside a() → b() called
+4. b() pushed to stack
+5. b() executes → removed
+6. a() finishes → removed
+ */
+function a() {
+    console.log("Inside A");
+    b();
+}
+function b() {
+    console.log("Inside B");
+}
+a();
+
+
+
+
+/**
+ * Example 3 – Variable Shadowing
+ */
+var x = 1;
+
+function a() {
+  var x = 10;
+  console.log(x);
+}
+
+a();
+console.log(x);
+
+
+/**
+ * Example 4 – Hoisting Inside Execution Context
+ * 
+ * 
+ * 🧠 Behind the scenes:
+Memory phase:
+x → undefined
+Execution phase:
+console.log(x) → undefined
+x = 10
+ */
+function a() {
+  console.log(x);
+  var x = 10;
+}
+
+a();
+
 
